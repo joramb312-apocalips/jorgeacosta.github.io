@@ -6,35 +6,78 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-color: #e8f5e9;
       margin: 0;
-      padding: 20px;
-    }
-    h1 {
-      color: #2e7d32;
+      padding: 0;
       text-align: center;
     }
-    .dino {
+
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 30px 10px;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
       background: white;
-      padding: 15px;
-      margin: 20px auto;
-      max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 220px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #2e7d32;
+      font-weight: bold;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
 
-<h1>🦖 Mundo de los Dinosaurios</h1>
+<header>
+  <h1>🦖 Mundo de los Dinosaurios</h1>
+  <p>Aprende sobre las criaturas más impresionantes que existieron</p>
+</header>
 
-<div class="dino">
-  <h2>Tyrannosaurus Rex</h2>
-  <p><b>Era:</b> Cretácico</p>
-  <p><b>Dieta:</b> Carnívoro</p>
-  <p><b>Peso:</b> 8–9 toneladas</p>
-  <p><b>Dato curioso:</b> Uno de los depredadores más grandes que existieron.</p>
-</div>
+<main>
+  <div class="menu">
+
+    <div class="card">
+      <a href="carnivoros.html">🦖 Carnívoros</a>
+    </div>
+
+    <div class="card">
+      <a href="herbivoros.html">🌿 Herbívoros</a>
+    </div>
+
+    <div class="card">
+      <a href="eras.html">🌍 Eras geológicas</a>
+    </div>
+
+    <div class="card">
+      <a href="curiosidades.html">🧠 Curiosidades</a>
+    </div>
+
+  </div>
+</main>
 
 </body>
 </html>

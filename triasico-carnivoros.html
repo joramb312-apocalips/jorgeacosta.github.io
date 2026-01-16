@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carnívoros del Triásico</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", serif;
+  background: #0b1f14;
+  color: #e8ffe9;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.menu {
+  width: 260px;
+  background: #102a1c;
+  padding: 20px;
+  border-right: 2px solid #3e7d52;
+}
+
+.menu button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #9be7a4;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.menu button:hover {
+  background: rgba(155,231,164,0.15);
+}
+
+.panel {
+  flex: 1;
+  padding: 40px;
+}
+
+.panel img {
+  max-width: 380px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LISTA -->
+  <div class="menu">
+    <button onclick="mostrarDino('coelophysis')">Coelophysis</button>
+    <button onclick="mostrarDino('herrerasaurus')">Herrerasaurus</button>
+    <button onclick="mostrarDino('eoraptor')">Eoraptor</button>
+  </div>
+
+  <!-- PANEL -->
+  <div class="panel">
+    <h1 id="nombre">Selecciona un dinosaurio</h1>
+    <img id="imagen" src="" alt="">
+    <p id="info"></p>
+  </div>
+
+</div>
+
+<script>
+const dinos = {
+  coelophysis: {
+    nombre: "Coelophysis",
+    img: "imagenes/triasico/coelophysis.png",
+    info: "Pequeño carnívoro ágil del Triásico tardío."
+  },
+  herrerasaurus: {
+    nombre: "Herrerasaurus",
+    img: "imagenes/triasico/herrerasaurus.png",
+    info: "Uno de los dinosaurios carnívoros más primitivos conocidos."
+  },
+  eoraptor: {
+    nombre: "Eoraptor",
+    img: "imagenes/triasico/eoraptor.png",
+    info: "Dinosaurio temprano, posiblemente omnivoro."
+  }
+};
+
+function mostrarDino(id) {
+  document.getElementById("nombre").innerText = dinos[id].nombre;
+  document.getElementById("imagen").src = dinos[id].img;
+  document.getElementById("info").innerText = dinos[id].info;
+}
+</script>
+
+</body>
+</html>

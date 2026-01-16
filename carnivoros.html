@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carnívoros | Mundo de los Dinosaurios</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", serif;
+      color: #f5f5f5;
+      background: linear-gradient(
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.75)
+      ),
+      url("v2osk-1Z2niiBPg5A-unsplash.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    header {
+      background: rgba(20, 60, 30, 0.9);
+      padding: 30px;
+      text-align: center;
+      border-bottom: 3px solid #3d7a45;
+    }
+
+    h1 {
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    main {
+      padding: 40px 20px 120px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .era {
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 6px solid #4caf50;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    .era h2 {
+      margin-top: 0;
+      color: #9be7a4;
+    }
+
+    .era p {
+      line-height: 1.6;
+    }
+
+    /* DINO CAMINANDO */
+    .dino-walk {
+      position: fixed;
+      bottom: 10px;
+      left: -100px;
+      font-size: 64px;
+      animation: walk 20s linear infinite;
+      z-index: 10;
+    }
+
+    @keyframes walk {
+      from {
+        left: -100px;
+        transform: scaleX(1);
+      }
+      to {
+        left: 110%;
+        transform: scaleX(1);
+      }
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      margin: 30px 0;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🦖 Carnívoros Prehistóricos</h1>
+  <p>Los depredadores más temidos de cada era</p>
+</header>
+
+<main>
+
+  <section class="era">
+    <h2>Triásico</h2>
+    <p><b>Dinosaurio:</b> Coelophysis</p>
+    <p><b>Peso:</b> ~20 kg</p>
+    <p><b>Características:</b> Ágil, rápido y uno de los primeros carnívoros conocidos.</p>
+  </section>
+
+  <section class="era">
+    <h2>Jurásico</h2>
+    <p><b>Dinosaurio:</b> Allosaurus</p>
+    <p><b>Peso:</b> ~2 toneladas</p>
+    <p><b>Características:</b> Depredador dominante de su tiempo, cazador en grupo.</p>
+  </section>
+
+  <section class="era">
+    <h2>Cretácico</h2>
+    <p><b>Dinosaurio:</b> Tyrannosaurus Rex</p>
+    <p><b>Peso:</b> 8–9 toneladas</p>
+    <p><b>Características:</b> Mordida más poderosa entre los dinosaurios terrestres.</p>
+  </section>
+
+</main>
+
+<!-- DINO ANIMADO -->
+<div class="dino-walk">🦖</div>
+
+<footer>
+  Mundo de los Dinosaurios · Proyecto educativo
+</footer>
+
+</body>
+</html>

@@ -6,12 +6,11 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Times New Roman", Georgia, serif;
       margin: 0;
       padding: 0;
       text-align: center;
 
-      /* FONDO DE JUNGLA */
       background-image: url("v2osk-1Z2niiBPg5A-unsplash.jpg");
       background-size: cover;
       background-position: center;
@@ -19,47 +18,71 @@
       background-attachment: fixed;
     }
 
+    /* CABECERA */
     header {
-      background-color: rgba(46, 125, 50, 0.85);
-      color: white;
-      padding: 30px 10px;
+      background-color: rgba(20, 60, 35, 0.9);
+      color: #f1f8e9;
+      padding: 35px 15px;
+      border-bottom: 4px solid #1b5e20;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+      opacity: 0.9;
     }
 
     main {
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
 
+    /* MENÚ */
     .menu {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
     }
 
+    /* BOTONES ESTILO ANTIGUO */
     .card {
-      background: rgba(255, 255, 255, 0.9);
-      width: 220px;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-      transition: transform 0.2s;
+      background: rgba(245, 245, 220, 0.92);
+      width: 240px;
+      padding: 25px 15px;
+      border: 3px solid #2e7d32;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .card:hover {
-      transform: scale(1.05);
+      transform: translateY(-5px);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.7);
     }
 
     .card a {
       text-decoration: none;
-      color: #2e7d32;
+      color: #1b5e20;
+      font-size: 20px;
       font-weight: bold;
-      font-size: 18px;
+      letter-spacing: 1px;
+      display: block;
     }
 
-    footer {
-      color: white;
-      margin: 20px;
-      font-size: 14px;
+    /* EFECTO DE PLACA */
+    .card a::after {
+      content: "";
+      display: block;
+      margin: 10px auto 0;
+      width: 60%;
+      height: 2px;
+      background-color: #2e7d32;
     }
   </style>
 </head>
@@ -67,30 +90,30 @@
 
 <header>
   <h1>🦖 Mundo de los Dinosaurios</h1>
-  <p>Aprende sobre las criaturas más impresionantes que existieron</p>
+  <p>Archivo histórico de las criaturas que dominaron la Tierra</p>
 </header>
 
 <main>
   <div class="menu">
 
     <div class="card">
-      <a href="carnivoros.html">🦖 Carnívoros</a>
+      <a href="carnivoros.html">Carnívoros</a>
     </div>
 
     <div class="card">
-      <a href="herbivoros.html">🌿 Herbívoros</a>
+      <a href="herbivoros.html">Herbívoros</a>
     </div>
 
     <div class="card">
-      <a href="eras.html">🌍 Eras geológicas</a>
+      <a href="eras.html">Eras Geológicas</a>
     </div>
 
     <div class="card">
-      <a href="curiosidades.html">🧠 Curiosidades</a>
+      <a href="curiosidades.html">Curiosidades</a>
     </div>
 
   </div>
 </main>
-  
+
 </body>
 </html>

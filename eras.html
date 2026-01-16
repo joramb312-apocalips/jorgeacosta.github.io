@@ -30,15 +30,18 @@ main {
 }
 
 .era {
-  margin-bottom: 70px;
+  margin-bottom: 80px;
+  text-align: center;
 }
 
+/* IMAGEN CIRCULAR */
 .era img {
-  width: 100%;
+  width: 300px;
   height: 300px;
   object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  border-radius: 50%;
+  border: 4px solid #7ecf8b;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.7);
 }
 
 .era h2 {
@@ -49,28 +52,25 @@ main {
 .era p {
   line-height: 1.7;
   max-width: 900px;
+  margin: auto;
 }
 
 .subsections {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  margin-top: 30px;
+  margin-top: 35px;
+  justify-content: center;
 }
 
 .card {
   flex: 1;
   min-width: 260px;
+  max-width: 420px;
   background: rgba(20,40,25,0.95);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
 }
 
 .card div {
@@ -88,34 +88,32 @@ main {
 
 <header>
   <h1>🌍 Eras Geológicas</h1>
-  <p>La historia completa de la era de los dinosaurios</p>
+  <p>La historia de la Tierra durante la era de los dinosaurios</p>
 </header>
 
 <main>
 
 <!-- TRIÁSICO -->
 <section class="era">
-  <img src="triasico.jpg" alt="Era Triásica">
+  <img src="https://github.com/joramb312-apocalips/jorgeacosta.github.io/blob/76423dc9436ad405de7b590ddfd778a037abc263/triasico.png?raw=true" alt="Era Triásica">
   <h2>Triásico (252–201 millones de años)</h2>
   <p>
-    La Tierra era seca y caliente. Los continentes formaban Pangea.
-    Aparecieron los primeros dinosaurios, pequeños y ágiles.
+    Pangea dominaba el planeta. El clima era árido y aparecieron
+    los primeros dinosaurios, pequeños y ágiles.
   </p>
 
   <div class="subsections">
     <div class="card">
-      <img src="triasico-carni.jpg" alt="Carnívoros del Triásico">
       <div>
         <h3>🦖 Carnívoros</h3>
-        <p>Pequeños depredadores rápidos como el Coelophysis.</p>
+        <p>Depredadores primitivos, rápidos y ligeros.</p>
       </div>
     </div>
 
     <div class="card">
-      <img src="triasico-herbi.jpg" alt="Herbívoros del Triásico">
       <div>
         <h3>🌿 Herbívoros</h3>
-        <p>Dinosaurios primitivos que se alimentaban de helechos.</p>
+        <p>Especies pequeñas que se alimentaban de plantas simples.</p>
       </div>
     </div>
   </div>
@@ -123,27 +121,25 @@ main {
 
 <!-- JURÁSICO -->
 <section class="era">
-  <img src="jurasico.jpg" alt="Era Jurásica">
+  <img src="https://github.com/joramb312-apocalips/jorgeacosta.github.io/blob/76423dc9436ad405de7b590ddfd778a037abc263/jurasico.png?raw=true" alt="Era Jurásica">
   <h2>Jurásico (201–145 millones de años)</h2>
   <p>
-    Clima húmedo y abundante vegetación. Los dinosaurios alcanzaron tamaños
-    gigantescos y dominaron el planeta.
+    El clima se volvió húmedo. Los continentes comenzaron a separarse
+    y surgieron los dinosaurios gigantes.
   </p>
 
   <div class="subsections">
     <div class="card">
-      <img src="jurasico-carni.jpg" alt="Carnívoros del Jurásico">
       <div>
         <h3>🦖 Carnívoros</h3>
-        <p>Depredadores como el Allosaurus dominaban la cadena alimenticia.</p>
+        <p>Grandes cazadores como el Allosaurus.</p>
       </div>
     </div>
 
     <div class="card">
-      <img src="jurasico-herbi.jpg" alt="Herbívoros del Jurásico">
       <div>
         <h3>🌿 Herbívoros</h3>
-        <p>Gigantes de cuello largo como el Brachiosaurus.</p>
+        <p>Colosos de cuello largo que dominaban la vegetación.</p>
       </div>
     </div>
   </div>
@@ -151,24 +147,22 @@ main {
 
 <!-- CRETÁCICO -->
 <section class="era">
-  <img src="cretacico.jpg" alt="Era Cretácica">
+  <img src="https://github.com/joramb312-apocalips/jorgeacosta.github.io/blob/76423dc9436ad405de7b590ddfd778a037abc263/cretacico.png?raw=true" alt="Era Cretácica">
   <h2>Cretácico (145–66 millones de años)</h2>
   <p>
-    Gran diversidad de especies. Aparecen flores.
-    Finaliza con la extinción masiva.
+    Gran diversidad de especies. Aparecen las flores
+    y finaliza con la extinción masiva.
   </p>
 
   <div class="subsections">
     <div class="card">
-      <img src="cretacico-carni.jpg" alt="Carnívoros del Cretácico">
       <div>
         <h3>🦖 Carnívoros</h3>
-        <p>El Tyrannosaurus Rex fue uno de los mayores depredadores.</p>
+        <p>El Tyrannosaurus Rex dominó esta era.</p>
       </div>
     </div>
 
     <div class="card">
-      <img src="cretacico-herbi.jpg" alt="Herbívoros del Cretácico">
       <div>
         <h3>🌿 Herbívoros</h3>
         <p>Dinosaurios con defensas como el Triceratops.</p>

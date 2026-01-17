@@ -8,8 +8,8 @@
 body {
   margin: 0;
   font-family: "Trebuchet MS", serif;
-  background: #0b1f14;
-  color: #e8ffe9;
+  background: radial-gradient(circle at top, #1b1b1b, #050505);
+  color: #e5e5e5;
 }
 
 .container {
@@ -19,32 +19,35 @@ body {
 
 /* MENU */
 .menu {
-  width: 280px;
-  background: #102a1c;
+  width: 300px;
+  background: linear-gradient(#1f1f1f, #0b0b0b);
   padding: 20px;
-  border-right: 2px solid #3e7d52;
+  border-right: 3px solid #5a4a32;
+  box-shadow: inset -5px 0 15px rgba(0,0,0,0.8);
   overflow-y: auto;
 }
 
 .menu h2 {
-  color: #9be7a4;
-  margin-top: 0;
   text-align: center;
+  color: #c8b07a;
+  letter-spacing: 2px;
 }
 
 .menu button {
   width: 100%;
   background: none;
-  border: none;
-  color: #c9ffd2;
+  border: 1px solid transparent;
+  color: #ddd;
   padding: 12px;
+  margin-bottom: 6px;
   text-align: left;
   cursor: pointer;
   font-size: 15px;
 }
 
 .menu button:hover {
-  background: rgba(155,231,164,0.15);
+  background: rgba(200,176,122,0.15);
+  border-color: #6b5b3e;
 }
 
 /* PANEL */
@@ -54,26 +57,34 @@ body {
   overflow-y: auto;
 }
 
+.panel h1 {
+  color: #c8b07a;
+  text-shadow: 0 0 8px #000;
+}
+
 .panel img {
-  width: 420px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 3px solid #7ecf8b;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-  margin-bottom: 20px;
+  width: 520px;
+  max-width: 100%;
+  border-radius: 14px;
+  border: 4px solid #5a4a32;
+  background: #111;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.85);
+  margin-bottom: 25px;
 }
 
 .stats {
-  margin-top: 15px;
-  line-height: 1.6;
+  background: rgba(20,20,20,0.85);
+  padding: 25px;
+  border-radius: 14px;
+  border: 2px solid #4e402c;
+  line-height: 1.7;
 }
 
 .note {
-  margin-top: 40px;
+  margin-top: 35px;
   font-size: 14px;
-  opacity: 0.85;
-  border-top: 1px solid #3e7d52;
+  opacity: 0.8;
+  border-top: 1px solid #4e402c;
   padding-top: 15px;
 }
 </style>
@@ -83,117 +94,131 @@ body {
 
 <div class="container">
 
-  <!-- MENU -->
-  <div class="menu">
-    <h2>Triásico</h2>
+<div class="menu">
+  <h2>TRIÁSICO</h2>
+  <button onclick="mostrarDino('coelophysis')">Coelophysis</button>
+  <button onclick="mostrarDino('herrerasaurus')">Herrerasaurus</button>
+  <button onclick="mostrarDino('eoraptor')">Eoraptor</button>
+  <button onclick="mostrarDino('daemonosaurus')">Daemonosaurus</button>
+  <button onclick="mostrarDino('staurikosaurus')">Staurikosaurus</button>
+  <button onclick="mostrarDino('tawa')">Tawa hallae</button>
+  <button onclick="mostrarDino('liliensternus')">Liliensternus</button>
+  <button onclick="mostrarDino('camposaurus')">Camposaurus</button>
+  <button onclick="mostrarDino('chindesaurus')">Chindesaurus</button>
+</div>
 
-    <button onclick="mostrarDino('coelophysis')">Coelophysis</button>
-    <button onclick="mostrarDino('herrerasaurus')">Herrerasaurus</button>
-    <button onclick="mostrarDino('eoraptor')">Eoraptor</button>
-    <button onclick="mostrarDino('daemonosaurus')">Daemonosaurus</button>
-    <button onclick="mostrarDino('staurikosaurus')">Staurikosaurus</button>
-    <button onclick="mostrarDino('tawa')">Tawa hallae</button>
-    <button onclick="mostrarDino('liliensternus')">Liliensternus</button>
-    <button onclick="mostrarDino('camposaurus')">Camposaurus</button>
-    <button onclick="mostrarDino('chindesaurus')">Chindesaurus</button>
+<div class="panel">
+  <h1 id="nombre">Carnívoros del Triásico</h1>
+  <img id="imagen" src="">
+  <div class="stats" id="info">
+    Selecciona un dinosaurio para ver su información.
   </div>
 
-  <!-- PANEL -->
-  <div class="panel">
-    <h1 id="nombre">Carnívoros del Triásico</h1>
-
-    <img id="imagen" src="" alt="">
-
-    <div class="stats" id="info">
-      <p>
-        Selecciona un dinosaurio para ver su información.
-      </p>
-    </div>
-
-    <div class="note">
-      ⚠️ <b>Nota científica:</b><br>
-      Durante el Triásico, no todos los grandes depredadores eran dinosaurios
-      verdaderos. Muchos eran arcosaurios primitivos.  
-      Las especies listadas aquí representan los carnívoros más aceptados como
-      dinosaurios tempranos.
-    </div>
+  <div class="note">
+    ⚠️ <b>Nota científica:</b>  
+    Durante el Triásico los dinosaurios apenas comenzaban a dominar.
+    Muchos competían con otros reptiles arcosaurios en un mundo hostil.
   </div>
+</div>
 
 </div>
 
 <script>
 const dinos = {
-  coelophysis: {
-    nombre: "Coelophysis",
-    img: "URL_COELOPHYSIS",
-    info: `
-      <b>Periodo:</b> Triásico tardío<br>
-      <b>Dieta:</b> Carnívoro<br>
-      <b>Tamaño:</b> Pequeño y ágil<br><br>
-      Uno de los dinosaurios carnívoros más antiguos conocidos.
-    `
-  },
-  herrerasaurus: {
-    nombre: "Herrerasaurus",
-    img: "URL_HERRERASAURUS",
-    info: `
-      <b>Periodo:</b> Triásico<br>
-      <b>Dieta:</b> Carnívoro<br>
-      <b>Tamaño:</b> Mediano<br><br>
-      Considerado un dinosaurio primitivo con rasgos únicos.
-    `
-  },
-  eoraptor: {
-    nombre: "Eoraptor",
-    img: "URL_EORAPTOR",
-    info: `
-      <b>Periodo:</b> Triásico temprano<br>
-      <b>Dieta:</b> Omnívoro / Carnívoro<br><br>
-      Uno de los dinosaurios más antiguos jamás descubiertos.
-    `
-  },
-  daemonosaurus: {
-    nombre: "Daemonosaurus",
-    img: "URL_DAEMONOSAURUS",
-    info: `
-      Pequeño depredador bípedo con dientes especializados.
-    `
-  },
-  staurikosaurus: {
-    nombre: "Staurikosaurus",
-    img: "URL_STAURIKOSAURUS",
-    info: `
-      Dinosaurio carnívoro temprano de América del Sur.
-    `
-  },
-  tawa: {
-    nombre: "Tawa hallae",
-    img: "URL_TAWA",
-    info: `
-      Especie clave para entender el origen de los dinosaurios.
-    `
-  },
-  liliensternus: {
-    nombre: "Liliensternus",
-    img: "URL_LILIENSTERNUS",
-    info: `
-      Carnívoro del Triásico tardío europeo.
-    `
-  },
-  camposaurus: {
-    nombre: "Camposaurus",
-    img: "URL_CAMPOSAURUS",
-    info: `
-      Dinosaurio carnívoro poco conocido del Triásico.
-    `
-  },
-  chindesaurus: {
-    nombre: "Chindesaurus",
-    img: "URL_CHINDESAURUS",
-    info: `
-      Carnívoro primitivo descubierto en Norteamérica.
-    `
-  }
+
+coelophysis: {
+nombre: "Coelophysis",
+img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/6a98ddd376ad0734755e11b7101696be93467446/Coelophysis%20en%20perfil%20tridimensional.png",
+info: `
+<b>Periodo:</b> Triásico tardío (≈ 216–196 millones de años)<br>
+<b>Dieta estimada:</b> Carnívoro (pequeños reptiles, lagartos, crías)<br>
+<b>Tamaño:</b> 2.7–3 m (270–300 cm / 8.8–9.8 ft)<br>
+<b>Número de dientes:</b> ~60 afilados<br>
+<b>Velocidad estimada:</b> 40–50 km/h<br>
+<b>Significado del nombre:</b> "Forma hueca"<br><br>
+<b>Contexto:</b><br>
+Coelophysis fue uno de los primeros depredadores ágiles de la historia.
+Vivía en grupos, cazaba rápidamente y dominó su ecosistema.
+Representa el inicio del linaje de los grandes terópodos.
+`
+},
+
+herrerasaurus: {
+nombre: "Herrerasaurus",
+img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/6a98ddd376ad0734755e11b7101696be93467446/herrerasaurus.png",
+info: `
+<b>Periodo:</b> Triásico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 4–6 m (13–20 ft)<br>
+<b>Dientes:</b> ~50<br>
+<b>Velocidad:</b> ~45 km/h<br>
+<b>Significado:</b> "Lagarto de Herrera"<br><br>
+Uno de los primeros grandes depredadores bípedos.
+Su anatomía muestra la transición hacia los terópodos avanzados.
+`
+},
+
+eoraptor: {
+nombre: "Eoraptor",
+img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/6a98ddd376ad0734755e11b7101696be93467446/Eoraptor%20(omnivoro%E2%80%93carn%C3%ADvoro%2C%20se%20incluye).png",
+info: `
+<b>Periodo:</b> Triásico temprano<br>
+<b>Dieta:</b> Omnívoro / Carnívoro<br>
+<b>Tamaño:</b> 1 m (3.3 ft)<br>
+<b>Dientes:</b> ~30<br>
+<b>Significado:</b> "Ladrón del amanecer"<br><br>
+Probablemente el dinosaurio más cercano al ancestro común.
+`
+},
+
+daemonosaurus: {
+nombre: "Daemonosaurus",
+img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/6a98ddd376ad0734755e11b7101696be93467446/Daemonosaurus.png",
+info: `
+Pequeño depredador especializado con dientes curvos.
+`
+},
+
+staurikosaurus: {
+nombre: "Staurikosaurus",
+img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/6a98ddd376ad0734755e11b7101696be93467446/Staurikosaurus.png",
+info: `
+Carnívoro temprano sudamericano muy ágil.
+`
+},
+
+tawa: {
+nombre: "Tawa hallae",
+img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/6a98ddd376ad0734755e11b7101696be93467446/Tawa%20hallae.png",
+info: `
+Clave para entender la dispersión de dinosaurios.
+`
+},
+
+liliensternus: {
+nombre: "Liliensternus",
+img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/6a98ddd376ad0734755e11b7101696be93467446/Liliensternus.png",
+info: `
+Depredador europeo del Triásico tardío.
+`
+},
+
+camposaurus: {
+nombre: "Camposaurus",
+img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/6a98ddd376ad0734755e11b7101696be93467446/Camposaurus.png",
+info: `
+Uno de los carnívoros más antiguos conocidos.
+`
+},
+
+chindesaurus: {
+nombre: "Chindesaurus",
+img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/6a98ddd376ad0734755e11b7101696be93467446/Chindesaurus.png",
+info: `
+Carnívoro primitivo norteamericano.
+`
+}
+
 };
 
 function mostrarDino(id) {
@@ -205,3 +230,4 @@ function mostrarDino(id) {
 
 </body>
 </html>
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Jurásico</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", serif;
+  background: radial-gradient(circle at top, #1b1b1b, #050505);
+  color: #e5e5e5;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 50px;
+  text-align: center;
+}
+
+h1 {
+  color: #c8b07a;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px #000;
+}
+
+p {
+  max-width: 900px;
+  margin: 25px auto 50px;
+  line-height: 1.7;
+  font-size: 17px;
+  opacity: 0.9;
+}
+
+/* BOTONES */
+.periodos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.periodo {
+  width: 280px;
+  padding: 25px;
+  background: linear-gradient(#1f1f1f, #0c0c0c);
+  border: 3px solid #5a4a32;
+  border-radius: 18px;
+  cursor: pointer;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.periodo:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.9);
+}
+
+.periodo h2 {
+  color: #c8b07a;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.periodo span {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.note {
+  margin-top: 60px;
+  font-size: 14px;
+  opacity: 0.8;
+  border-top: 1px solid #4e402c;
+  padding-top: 20px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>JURÁSICO</h1>
+
+<p>
+El Jurásico (201–145 millones de años) fue una de las épocas más importantes
+en la historia de la vida. Durante este periodo, los dinosaurios se
+diversificaron enormemente y los grandes terópodos carnívoros se convirtieron
+en los depredadores dominantes de los ecosistemas terrestres.
+</p>
+
+<div class="periodos">
+
+  <div class="periodo" onclick="location.href='jurasico-temprano-carnivoros.html'">
+    <h2>Jurásico temprano</h2>
+    <span>201 – 174 millones de años</span>
+  </div>
+
+  <div class="periodo" onclick="location.href='jurasico-medio-carnivoros.html'">
+    <h2>Jurásico medio</h2>
+    <span>174 – 163 millones de años</span>
+  </div>
+
+  <div class="periodo" onclick="location.href='jurasico-tardio-carnivoros.html'">
+    <h2>Jurásico tardío</h2>
+    <span>163 – 145 millones de años</span>
+  </div>
+
+</div>
+
+<div class="note">
+⚠️ <b>Nota científica:</b><br>
+Las especies de dinosaurios cambiaron significativamente a lo largo del
+Jurásico. Por ello, los carnívoros se presentan separados por sub-periodos
+para evitar errores temporales y mantener precisión científica.
+</div>
+
+</div>
+
+</body>
+</html>

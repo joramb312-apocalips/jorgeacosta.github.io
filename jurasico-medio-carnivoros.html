@@ -41,7 +41,6 @@ body {
   margin-bottom: 6px;
   text-align: left;
   cursor: pointer;
-  font-size: 14px;
 }
 
 .menu button:hover {
@@ -66,7 +65,8 @@ body {
   border-radius: 14px;
   border: 4px solid #5a4a32;
   margin-bottom: 25px;
-  display: none;
+  background: #111;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.85);
 }
 
 .stats {
@@ -108,12 +108,13 @@ body {
   <button onclick="mostrarDino('wiehenvenator')">Wiehenvenator</button>
   <button onclick="mostrarDino('torvosaurus_early')">Torvosaurus (temprano)</button>
 </div>
-
 <!-- PANEL -->
 <div class="panel">
   <h1 id="nombre">Carnívoros del Jurásico Medio</h1>
 
-  <img id="imagen" src="" alt="" />
+  <img id="imagen"
+       src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png"
+       alt="Dinosaurio">
 
   <div class="stats" id="info">
     Selecciona un dinosaurio para ver su información.
@@ -122,17 +123,17 @@ body {
   <div class="note">
     ⚠️ <b>Nota científica:</b><br>
     El Jurásico medio marca la consolidación de grandes terópodos depredadores.
-    Muchos linajes que dominarán el Jurásico tardío tienen aquí sus primeras formas avanzadas.
   </div>
 </div>
-  
-<!-- SCRIPT -->
+
+</div>
+
 <script>
 const dinos = {
   
 megalosaurus: {
   nombre: "Megalosaurus",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+   img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (Bajociano–Batoniano, ≈ 170–166 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -147,7 +148,7 @@ Primer dinosaurio carnívoro descrito científicamente (1824). Depredador domina
 
 eustreptospondylus: {
   nombre: "Eustreptospondylus",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+     img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (≈ 165 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -162,7 +163,7 @@ Terópodo europeo bien preservado, estrechamente relacionado con los megalosáur
 
 poekilopleuron: {
   nombre: "Poekilopleuron",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+     img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (≈ 168 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -177,7 +178,7 @@ Gran depredador europeo (Francia). Su clasificación ha sido debatida, pero repr
 
 afrovenator: {
   nombre: "Afrovenator",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+    img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (≈ 167 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -192,7 +193,7 @@ Depredador dominante del norte de África, bien conocido por esqueletos relativa
 
 piatnitzkysaurus: {
   nombre: "Piatnitzkysaurus",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+    img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (≈ 168–166 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -207,7 +208,7 @@ Terópodo ágil de Sudamérica, importante para entender la radiación de carní
 
 monolophosaurus: {
   nombre: "Monolophosaurus",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+    img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (≈ 168 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -222,7 +223,7 @@ Terópodo chino caracterizado por una gran cresta nasal, posiblemente usada para
 
 gasosaurus: {
   nombre: "Gasosaurus",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+    img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (≈ 170 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -237,7 +238,7 @@ Descubierto durante excavaciones industriales en China. Terópodo ágil de tama�
 
 marshosaurus: {
   nombre: "Marshosaurus",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+   img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (≈ 165 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -252,7 +253,7 @@ Terópodo norteamericano poco conocido, contemporáneo de Allosaurus temprano.
 
 xuanhanosaurus: {
   nombre: "Xuanhanosaurus",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+      img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (≈ 166 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -267,7 +268,7 @@ Terópodo asiático con brazos relativamente fuertes; posible cazador activo.
 
 chuandongocoelurus: {
   nombre: "Chuandongocoelurus",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+     img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (≈ 168 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -282,7 +283,7 @@ Terópodo asiático ligero y veloz, cercano a linajes más avanzados.
 
 wiehenvenator: {
   nombre: "Wiehenvenator",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+    img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio (≈ 166 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -297,7 +298,7 @@ Megadepredador europeo, uno de los carnívoros más grandes del Jurásico medio.
 
 torvosaurus_early: {
   nombre: "Torvosaurus (formas tempranas)",
-    img: "",  // 👈 AQUÍ VA TU URL DIRECTA
+     img: "https://raw.githubusercontent.com/joramb312-apocalips/jorgeacosta.github.io/main/megalosaurus.png",
   info: `
 <b>Periodo:</b> Jurásico medio–tardío (≈ 165–160 Ma)<br>
 <b>Dieta:</b> Carnívoro<br>
@@ -311,7 +312,6 @@ Representa el inicio del linaje de los grandes torvosáuridos, futuros superdepr
 }
 
 };
-/* FUNCIÓN PRINCIPAL */
 function mostrarDino(id) {
   const dino = dinos[id];
   if (!dino) return;
@@ -323,19 +323,15 @@ function mostrarDino(id) {
   nombre.textContent = dino.nombre;
   info.innerHTML = dino.info;
 
-  if (dino.img && dino.img.trim() !== "") {
+  // fuerza recarga
+  imagen.src = "";
+  setTimeout(() => {
     imagen.src = dino.img;
-    imagen.alt = dino.nombre;
-    imagen.style.display = "block";
+  }, 10);
 
-    imagen.onerror = function () {
-      this.onerror = null;
-      this.src = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png";
-    };
-  } else {
-    imagen.style.display = "none";
-    imagen.src = "";
-  }
+  imagen.onerror = function () {
+    this.src = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png";
+  };
 }
 </script>
 

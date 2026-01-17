@@ -94,6 +94,7 @@ body {
 
 <div class="container">
 
+<!-- MENU -->
 <div class="menu">
   <h2>JURÁSICO TEMPRANO</h2>
 
@@ -119,9 +120,15 @@ body {
   <button onclick="mostrarDino('basal_neotheropod')">Neoterópodo basal</button>
 </div>
 
+<!-- PANEL -->
 <div class="panel">
   <h1 id="nombre">Carnívoros del Jurásico Temprano</h1>
-  <img id="imagen" src="" style="display:none">
+
+  <!-- IMAGEN -->
+  <img id="imagen"
+       src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png"
+       alt="Dinosaurio">
+
   <div class="stats" id="info">
     Selecciona un dinosaurio para ver su información.
   </div>
@@ -440,9 +447,23 @@ Incluye restos fragmentarios aún no asignados a géneros definidos.
 };
 
 function mostrarDino(id) {
-  document.getElementById("nombre").innerText = dinos[id].nombre;
-  document.getElementById("imagen").src = dinos[id].img;
-  document.getElementById("info").innerHTML = dinos[id].info;
+  const dino = dinos[id];
+  if (!dino) return;
+
+  const nombre = document.getElementById("nombre");
+  const imagen = document.getElementById("imagen");
+  const info = document.getElementById("info");
+
+  nombre.innerText = dino.nombre;
+  info.innerHTML = dino.info;
+
+  imagen.src = dino.img;
+
+  // fallback si la imagen no carga
+  imagen.onerror = function () {
+    this.onerror = null;
+    this.src = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png";
+  };
 }
 </script>
 

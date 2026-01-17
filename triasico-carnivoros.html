@@ -17,18 +17,26 @@ body {
   height: 100vh;
 }
 
+/* MENU */
 .menu {
-  width: 260px;
+  width: 280px;
   background: #102a1c;
   padding: 20px;
   border-right: 2px solid #3e7d52;
+  overflow-y: auto;
+}
+
+.menu h2 {
+  color: #9be7a4;
+  margin-top: 0;
+  text-align: center;
 }
 
 .menu button {
   width: 100%;
   background: none;
   border: none;
-  color: #9be7a4;
+  color: #c9ffd2;
   padding: 12px;
   text-align: left;
   cursor: pointer;
@@ -39,17 +47,35 @@ body {
   background: rgba(155,231,164,0.15);
 }
 
+/* PANEL */
 .panel {
   flex: 1;
   padding: 40px;
+  overflow-y: auto;
 }
 
 .panel img {
-  max-width: 380px;
+  width: 420px;
+  height: 260px;
+  object-fit: cover;
   border-radius: 12px;
+  border: 3px solid #7ecf8b;
   box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+  margin-bottom: 20px;
 }
 
+.stats {
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.note {
+  margin-top: 40px;
+  font-size: 14px;
+  opacity: 0.85;
+  border-top: 1px solid #3e7d52;
+  padding-top: 15px;
+}
 </style>
 </head>
 
@@ -57,18 +83,40 @@ body {
 
 <div class="container">
 
-  <!-- LISTA -->
+  <!-- MENU -->
   <div class="menu">
+    <h2>Triásico</h2>
+
     <button onclick="mostrarDino('coelophysis')">Coelophysis</button>
     <button onclick="mostrarDino('herrerasaurus')">Herrerasaurus</button>
     <button onclick="mostrarDino('eoraptor')">Eoraptor</button>
+    <button onclick="mostrarDino('daemonosaurus')">Daemonosaurus</button>
+    <button onclick="mostrarDino('staurikosaurus')">Staurikosaurus</button>
+    <button onclick="mostrarDino('tawa')">Tawa hallae</button>
+    <button onclick="mostrarDino('liliensternus')">Liliensternus</button>
+    <button onclick="mostrarDino('camposaurus')">Camposaurus</button>
+    <button onclick="mostrarDino('chindesaurus')">Chindesaurus</button>
   </div>
 
   <!-- PANEL -->
   <div class="panel">
-    <h1 id="nombre">Selecciona un dinosaurio</h1>
+    <h1 id="nombre">Carnívoros del Triásico</h1>
+
     <img id="imagen" src="" alt="">
-    <p id="info"></p>
+
+    <div class="stats" id="info">
+      <p>
+        Selecciona un dinosaurio para ver su información.
+      </p>
+    </div>
+
+    <div class="note">
+      ⚠️ <b>Nota científica:</b><br>
+      Durante el Triásico, no todos los grandes depredadores eran dinosaurios
+      verdaderos. Muchos eran arcosaurios primitivos.  
+      Las especies listadas aquí representan los carnívoros más aceptados como
+      dinosaurios tempranos.
+    </div>
   </div>
 
 </div>
@@ -77,25 +125,81 @@ body {
 const dinos = {
   coelophysis: {
     nombre: "Coelophysis",
-    img: "imagenes/triasico/coelophysis.png",
-    info: "Pequeño carnívoro ágil del Triásico tardío."
+    img: "URL_COELOPHYSIS",
+    info: `
+      <b>Periodo:</b> Triásico tardío<br>
+      <b>Dieta:</b> Carnívoro<br>
+      <b>Tamaño:</b> Pequeño y ágil<br><br>
+      Uno de los dinosaurios carnívoros más antiguos conocidos.
+    `
   },
   herrerasaurus: {
     nombre: "Herrerasaurus",
-    img: "imagenes/triasico/herrerasaurus.png",
-    info: "Uno de los dinosaurios carnívoros más primitivos conocidos."
+    img: "URL_HERRERASAURUS",
+    info: `
+      <b>Periodo:</b> Triásico<br>
+      <b>Dieta:</b> Carnívoro<br>
+      <b>Tamaño:</b> Mediano<br><br>
+      Considerado un dinosaurio primitivo con rasgos únicos.
+    `
   },
   eoraptor: {
     nombre: "Eoraptor",
-    img: "imagenes/triasico/eoraptor.png",
-    info: "Dinosaurio temprano, posiblemente omnivoro."
+    img: "URL_EORAPTOR",
+    info: `
+      <b>Periodo:</b> Triásico temprano<br>
+      <b>Dieta:</b> Omnívoro / Carnívoro<br><br>
+      Uno de los dinosaurios más antiguos jamás descubiertos.
+    `
+  },
+  daemonosaurus: {
+    nombre: "Daemonosaurus",
+    img: "URL_DAEMONOSAURUS",
+    info: `
+      Pequeño depredador bípedo con dientes especializados.
+    `
+  },
+  staurikosaurus: {
+    nombre: "Staurikosaurus",
+    img: "URL_STAURIKOSAURUS",
+    info: `
+      Dinosaurio carnívoro temprano de América del Sur.
+    `
+  },
+  tawa: {
+    nombre: "Tawa hallae",
+    img: "URL_TAWA",
+    info: `
+      Especie clave para entender el origen de los dinosaurios.
+    `
+  },
+  liliensternus: {
+    nombre: "Liliensternus",
+    img: "URL_LILIENSTERNUS",
+    info: `
+      Carnívoro del Triásico tardío europeo.
+    `
+  },
+  camposaurus: {
+    nombre: "Camposaurus",
+    img: "URL_CAMPOSAURUS",
+    info: `
+      Dinosaurio carnívoro poco conocido del Triásico.
+    `
+  },
+  chindesaurus: {
+    nombre: "Chindesaurus",
+    img: "URL_CHINDESAURUS",
+    info: `
+      Carnívoro primitivo descubierto en Norteamérica.
+    `
   }
 };
 
 function mostrarDino(id) {
   document.getElementById("nombre").innerText = dinos[id].nombre;
   document.getElementById("imagen").src = dinos[id].img;
-  document.getElementById("info").innerText = dinos[id].info;
+  document.getElementById("info").innerHTML = dinos[id].info;
 }
 </script>
 

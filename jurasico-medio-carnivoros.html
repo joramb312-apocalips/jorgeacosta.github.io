@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carnívoros del Jurásico Medio</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", serif;
+  background: radial-gradient(circle at top, #1b1b1b, #050505);
+  color: #e5e5e5;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* MENU */
+.menu {
+  width: 320px;
+  background: linear-gradient(#1f1f1f, #0b0b0b);
+  padding: 20px;
+  border-right: 3px solid #5a4a32;
+  overflow-y: auto;
+}
+
+.menu h2 {
+  text-align: center;
+  color: #c8b07a;
+  letter-spacing: 2px;
+}
+
+.menu button {
+  width: 100%;
+  background: none;
+  border: 1px solid transparent;
+  color: #ddd;
+  padding: 12px;
+  margin-bottom: 6px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu button:hover {
+  background: rgba(200,176,122,0.15);
+  border-color: #6b5b3e;
+}
+
+/* PANEL */
+.panel {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.panel h1 {
+  color: #c8b07a;
+}
+
+.panel img {
+  width: 520px;
+  max-width: 100%;
+  border-radius: 14px;
+  border: 4px solid #5a4a32;
+  margin-bottom: 25px;
+  display: none;
+}
+
+.stats {
+  background: rgba(20,20,20,0.85);
+  padding: 25px;
+  border-radius: 14px;
+  border: 2px solid #4e402c;
+  line-height: 1.7;
+}
+
+.note {
+  margin-top: 35px;
+  font-size: 14px;
+  opacity: 0.8;
+  border-top: 1px solid #4e402c;
+  padding-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="menu">
+  <h2>JURÁSICO MEDIO</h2>
+
+  <button onclick="mostrarDino('megalosaurus')">Megalosaurus</button>
+  <button onclick="mostrarDino('eustreptospondylus')">Eustreptospondylus</button>
+  <button onclick="mostrarDino('poekilopleuron')">Poekilopleuron</button>
+  <button onclick="mostrarDino('afrovenator')">Afrovenator</button>
+  <button onclick="mostrarDino('piatnitzkysaurus')">Piatnitzkysaurus</button>
+  <button onclick="mostrarDino('monolophosaurus')">Monolophosaurus</button>
+  <button onclick="mostrarDino('gasosaurus')">Gasosaurus</button>
+  <button onclick="mostrarDino('marshosaurus')">Marshosaurus</button>
+  <button onclick="mostrarDino('xuanhanosaurus')">Xuanhanosaurus</button>
+  <button onclick="mostrarDino('chuandongocoelurus')">Chuandongocoelurus</button>
+  <button onclick="mostrarDino('wiehenvenator')">Wiehenvenator</button>
+  <button onclick="mostrarDino('torvosaurus_early')">Torvosaurus (temprano)</button>
+</div>
+
+<div class="panel">
+  <h1 id="nombre">Carnívoros del Jurásico Medio</h1>
+  <img id="imagen" src="">
+  <div class="stats" id="info">
+    Selecciona un dinosaurio para ver su información.
+  </div>
+
+  <div class="note">
+    ⚠️ <b>Nota científica:</b><br>
+    El Jurásico medio marca la consolidación de grandes terópodos depredadores.
+    Muchos linajes que dominarán el Jurásico tardío tienen aquí sus primeras formas avanzadas.
+  </div>
+</div>
+
+</div>
+
+<script>
+const dinos = {
+
+megalosaurus: {
+  nombre: "Megalosaurus",
+  info: `
+<b>Periodo:</b> Jurásico medio (Bajociano–Batoniano, ≈ 170–166 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 8–9 m (800–900 cm / 26–30 ft)<br>
+<b>Número de dientes:</b> ~60, grandes y serrados<br>
+<b>Velocidad estimada:</b> Media (25–30 km/h)<br>
+<b>Significado del nombre:</b> "Gran lagarto"<br><br>
+<b>Contexto:</b><br>
+Primer dinosaurio carnívoro descrito científicamente (1824). Depredador dominante de Europa y base histórica del estudio de los terópodos.
+`
+},
+
+eustreptospondylus: {
+  nombre: "Eustreptospondylus",
+  info: `
+<b>Periodo:</b> Jurásico medio (≈ 165 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 6–7 m<br>
+<b>Número de dientes:</b> ~50, curvados y afilados<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Vértebras bien curvadas"<br><br>
+<b>Contexto:</b><br>
+Terópodo europeo bien preservado, estrechamente relacionado con los megalosáuridos clásicos.
+`
+},
+
+poekilopleuron: {
+  nombre: "Poekilopleuron",
+  info: `
+<b>Periodo:</b> Jurásico medio (≈ 168 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 7–9 m<br>
+<b>Número de dientes:</b> ~60, serrados<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Costillas variadas"<br><br>
+<b>Contexto:</b><br>
+Gran depredador europeo (Francia). Su clasificación ha sido debatida, pero representa terópodos robustos del Jurásico medio.
+`
+},
+
+afrovenator: {
+  nombre: "Afrovenator",
+  info: `
+<b>Periodo:</b> Jurásico medio (≈ 167 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> ≈ 8 m<br>
+<b>Número de dientes:</b> ~60, grandes y cortantes<br>
+<b>Velocidad estimada:</b> Media–alta (30–35 km/h)<br>
+<b>Significado del nombre:</b> "Cazador africano"<br><br>
+<b>Contexto:</b><br>
+Depredador dominante del norte de África, bien conocido por esqueletos relativamente completos.
+`
+},
+
+piatnitzkysaurus: {
+  nombre: "Piatnitzkysaurus",
+  info: `
+<b>Periodo:</b> Jurásico medio (≈ 168–166 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 4–5 m<br>
+<b>Número de dientes:</b> ~50, afilados<br>
+<b>Velocidad estimada:</b> Alta<br>
+<b>Significado del nombre:</b> En honor a Alejandro Piatnitzky<br><br>
+<b>Contexto:</b><br>
+Terópodo ágil de Sudamérica, importante para entender la radiación de carnívoros gondwánicos.
+`
+},
+
+monolophosaurus: {
+  nombre: "Monolophosaurus",
+  info: `
+<b>Periodo:</b> Jurásico medio (≈ 168 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 5–6 m<br>
+<b>Número de dientes:</b> ~60, serrados<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Lagarto de una cresta"<br><br>
+<b>Contexto:</b><br>
+Terópodo chino caracterizado por una gran cresta nasal, posiblemente usada para exhibición.
+`
+},
+
+gasosaurus: {
+  nombre: "Gasosaurus",
+  info: `
+<b>Periodo:</b> Jurásico medio (≈ 170 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> ≈ 4 m<br>
+<b>Número de dientes:</b> ~40, filosos<br>
+<b>Velocidad estimada:</b> Alta<br>
+<b>Significado del nombre:</b> "Lagarto del gas"<br><br>
+<b>Contexto:</b><br>
+Descubierto durante excavaciones industriales en China. Terópodo ágil de tamaño medio.
+`
+},
+
+marshosaurus: {
+  nombre: "Marshosaurus",
+  info: `
+<b>Periodo:</b> Jurásico medio (≈ 165 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 4–5 m<br>
+<b>Número de dientes:</b> ~50<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> En honor a Othniel C. Marsh<br><br>
+<b>Contexto:</b><br>
+Terópodo norteamericano poco conocido, contemporáneo de Allosaurus temprano.
+`
+},
+
+xuanhanosaurus: {
+  nombre: "Xuanhanosaurus",
+  info: `
+<b>Periodo:</b> Jurásico medio (≈ 166 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> ≈ 5 m<br>
+<b>Número de dientes:</b> ~50<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Lagarto de Xuanhan"<br><br>
+<b>Contexto:</b><br>
+Terópodo asiático con brazos relativamente fuertes; posible cazador activo.
+`
+},
+
+chuandongocoelurus: {
+  nombre: "Chuandongocoelurus",
+  info: `
+<b>Periodo:</b> Jurásico medio (≈ 168 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 3–4 m<br>
+<b>Número de dientes:</b> ~40<br>
+<b>Velocidad estimada:</b> Alta<br>
+<b>Significado del nombre:</b> "Coeluro de Chuandong"<br><br>
+<b>Contexto:</b><br>
+Terópodo asiático ligero y veloz, cercano a linajes más avanzados.
+`
+},
+
+wiehenvenator: {
+  nombre: "Wiehenvenator",
+  info: `
+<b>Periodo:</b> Jurásico medio (≈ 166 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> ≈ 9 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Cazador de Wiehen"<br><br>
+<b>Contexto:</b><br>
+Megadepredador europeo, uno de los carnívoros más grandes del Jurásico medio.
+`
+},
+
+torvosaurus_early: {
+  nombre: "Torvosaurus (formas tempranas)",
+  info: `
+<b>Periodo:</b> Jurásico medio–tardío (≈ 165–160 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 9–10 m<br>
+<b>Número de dientes:</b> ~60–70, muy robustos<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Lagarto salvaje"<br><br>
+<b>Contexto:</b><br>
+Representa el inicio del linaje de los grandes torvosáuridos, futuros superdepredadores.
+`
+}
+
+};
+
+function mostrarDino(id) {
+  document.getElementById("nombre").innerHTML = dinos[id].nombre;
+  document.getElementById("info").innerHTML = dinos[id].info;
+}
+</script>
+
+</body>
+</html>

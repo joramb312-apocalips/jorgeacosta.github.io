@@ -308,12 +308,23 @@ Representa el inicio del linaje de los grandes torvosáuridos, futuros superdepr
 }
 
 };
-
+<script>
 function mostrarDino(id) {
-  document.getElementById("nombre").innerHTML = dinos[id].nombre;
-  document.getElementById("info").innerHTML = dinos[id].info;
+  const dino = dinos[id];
+
+  document.getElementById("nombre").innerHTML = dino.nombre;
+  document.getElementById("info").innerHTML = dino.info;
+
+  const img = document.getElementById("imagen");
+  if (dino.img && dino.img !== "") {
+    img.src = dino.img;
+    img.style.display = "block";
+    img.alt = dino.nombre;
+  } else {
+    img.style.display = "none";
+  }
 }
 </script>
-
+  
 </body>
 </html>

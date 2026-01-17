@@ -91,6 +91,7 @@ body {
 
 <div class="container">
 
+<!-- MENU -->
 <div class="menu">
   <h2>JURÁSICO MEDIO</h2>
 
@@ -108,9 +109,12 @@ body {
   <button onclick="mostrarDino('torvosaurus_early')">Torvosaurus (temprano)</button>
 </div>
 
+<!-- PANEL -->
 <div class="panel">
   <h1 id="nombre">Carnívoros del Jurásico Medio</h1>
-  <img id="imagen" src="">
+
+  <img id="imagen" src="" alt="" />
+
   <div class="stats" id="info">
     Selecciona un dinosaurio para ver su información.
   </div>
@@ -121,12 +125,11 @@ body {
     Muchos linajes que dominarán el Jurásico tardío tienen aquí sus primeras formas avanzadas.
   </div>
 </div>
-
-</div>
-
+  
+<!-- SCRIPT -->
 <script>
 const dinos = {
-
+  
 megalosaurus: {
   nombre: "Megalosaurus",
     img: "",  // 👈 AQUÍ VA TU URL DIRECTA
@@ -308,6 +311,7 @@ Representa el inicio del linaje de los grandes torvosáuridos, futuros superdepr
 }
 
 };
+/* FUNCIÓN PRINCIPAL */
 function mostrarDino(id) {
   const dino = dinos[id];
   if (!dino) return;
@@ -316,17 +320,24 @@ function mostrarDino(id) {
   const imagen = document.getElementById("imagen");
   const info = document.getElementById("info");
 
-  nombre.innerText = dino.nombre;
+  nombre.textContent = dino.nombre;
   info.innerHTML = dino.info;
 
-  imagen.src = dino.img;
+  if (dino.img && dino.img.trim() !== "") {
+    imagen.src = dino.img;
+    imagen.alt = dino.nombre;
+    imagen.style.display = "block";
 
-  // fallback si la imagen no carga
-  imagen.onerror = function () {
-    this.onerror = null;
-    this.src = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png";
-  };
+    imagen.onerror = function () {
+      this.onerror = null;
+      this.src = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png";
+    };
+  } else {
+    imagen.style.display = "none";
+    imagen.src = "";
+  }
 }
 </script>
+
 </body>
 </html>

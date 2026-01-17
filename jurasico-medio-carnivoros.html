@@ -310,20 +310,23 @@ Representa el inicio del linaje de los grandes torvosáuridos, futuros superdepr
 };
 function mostrarDino(id) {
   const dino = dinos[id];
+  if (!dino) return;
 
-  document.getElementById("nombre").innerHTML = dino.nombre;
-  document.getElementById("info").innerHTML = dino.info;
+  const nombre = document.getElementById("nombre");
+  const imagen = document.getElementById("imagen");
+  const info = document.getElementById("info");
 
-  const img = document.getElementById("imagen");
-  if (dino.img && dino.img !== "") {
-    img.src = dino.img;
-    img.style.display = "block";
-    img.alt = dino.nombre;
-  } else {
-    img.style.display = "none";
-  }
+  nombre.innerText = dino.nombre;
+  info.innerHTML = dino.info;
+
+  imagen.src = dino.img;
+
+  // fallback si la imagen no carga
+  imagen.onerror = function () {
+    this.onerror = null;
+    this.src = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png";
+  };
 }
 </script>
-  
 </body>
 </html>

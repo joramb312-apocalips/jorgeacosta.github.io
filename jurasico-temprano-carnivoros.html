@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carnívoros del Jurásico Temprano</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", serif;
+  background: radial-gradient(circle at top, #1b1b1b, #050505);
+  color: #e5e5e5;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* MENU */
+.menu {
+  width: 300px;
+  background: linear-gradient(#1f1f1f, #0b0b0b);
+  padding: 20px;
+  border-right: 3px solid #5a4a32;
+  box-shadow: inset -5px 0 15px rgba(0,0,0,0.8);
+  overflow-y: auto;
+}
+
+.menu h2 {
+  text-align: center;
+  color: #c8b07a;
+  letter-spacing: 2px;
+}
+
+.menu button {
+  width: 100%;
+  background: none;
+  border: 1px solid transparent;
+  color: #ddd;
+  padding: 12px;
+  margin-bottom: 6px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.menu button:hover {
+  background: rgba(200,176,122,0.15);
+  border-color: #6b5b3e;
+}
+
+/* PANEL */
+.panel {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.panel h1 {
+  color: #c8b07a;
+  text-shadow: 0 0 8px #000;
+}
+
+.panel img {
+  width: 520px;
+  max-width: 100%;
+  border-radius: 14px;
+  border: 4px solid #5a4a32;
+  background: #111;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.85);
+  margin-bottom: 25px;
+}
+
+.stats {
+  background: rgba(20,20,20,0.85);
+  padding: 25px;
+  border-radius: 14px;
+  border: 2px solid #4e402c;
+  line-height: 1.7;
+}
+
+.note {
+  margin-top: 35px;
+  font-size: 14px;
+  opacity: 0.8;
+  border-top: 1px solid #4e402c;
+  padding-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="menu">
+  <h2>JURÁSICO TEMPRANO</h2>
+  <button onclick="mostrarDino('dilophosaurus')">Dilophosaurus</button>
+  <button onclick="mostrarDino('coelophysis_kayentakatae')">Coelophysis kayentakatae</button>
+  <button onclick="mostrarDino('sinosaurus')">Sinosaurus</button>
+  <button onclick="mostrarDino('cryolophosaurus')">Cryolophosaurus</button>
+  <button onclick="mostrarDino('sarcosaurus')">Sarcosaurus</button>
+  <button onclick="mostrarDino('podokesaurus')">Podokesaurus</button>
+</div>
+
+<div class="panel">
+  <h1 id="nombre">Carnívoros del Jurásico Temprano</h1>
+  <img id="imagen" src="">
+  <div class="stats" id="info">
+    Selecciona un dinosaurio para ver su información.
+  </div>
+
+  <div class="note">
+    ⚠️ <b>Nota científica:</b><br>
+    Durante el Jurásico temprano, los terópodos se diversificaron rápidamente tras la extinción del Triásico-Jurásico.
+    Aparecieron los primeros grandes depredadores dominantes, sentando las bases para los gigantes del Jurásico tardío.
+  </div>
+</div>
+
+</div>
+
+<script>
+const dinos = {
+
+dilophosaurus: {
+nombre: "Dilophosaurus",
+img: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Dilophosaurus_wetherilli_restoration.png",
+info: `
+<b>Periodo:</b> Jurásico temprano (Sinemuriano–Pliensbachiano)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 6–7 m<br>
+<b>Dientes:</b> Afilados, serrados<br>
+<b>Rasgo clave:</b> Doble cresta craneal<br><br>
+Uno de los primeros grandes depredadores del Jurásico. Ágil, esbelto y dominante en Norteamérica.
+`
+},
+
+coelophysis_kayentakatae: {
+nombre: "Coelophysis kayentakatae",
+img: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Coelophysis_kayentakatae.png",
+info: `
+<b>Periodo:</b> Jurásico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> ~3 m<br>
+<b>Velocidad:</b> Alta<br><br>
+Pariente jurásico de Coelophysis. Muestra la transición directa entre los terópodos triásicos y jurásicos.
+`
+},
+
+sinosaurus: {
+nombre: "Sinosaurus",
+img: "https://upload.wikimedia.org/wikipedia/commons/2/29/Sinosaurus.png",
+info: `
+<b>Periodo:</b> Jurásico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 5–6 m<br><br>
+Terópodo asiático posiblemente relacionado con Dilophosaurus. Uno de los depredadores dominantes en China.
+`
+},
+
+cryolophosaurus: {
+nombre: "Cryolophosaurus",
+img: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Cryolophosaurus.png",
+info: `
+<b>Periodo:</b> Jurásico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> ~6.5 m<br>
+<b>Rasgo:</b> Cresta transversal en el cráneo<br><br>
+Primer gran dinosaurio carnívoro conocido de la Antártida. Depredador ápice de su ecosistema.
+`
+},
+
+sarcosaurus: {
+nombre: "Sarcosaurus",
+img: "https://upload.wikimedia.org/wikipedia/commons/8/88/Sarcosaurus.png",
+info: `
+<b>Periodo:</b> Jurásico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 3–4 m<br><br>
+Terópodo europeo temprano, poco conocido pero clave para entender la evolución temprana de los neoterópodos.
+`
+},
+
+podokesaurus: {
+nombre: "Podokesaurus",
+img: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Podokesaurus.png",
+info: `
+<b>Periodo:</b> Jurásico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> ~1 m<br><br>
+Pequeño y veloz depredador basal. Importante históricamente en la paleontología temprana de EE.UU.
+`
+}
+
+};
+
+function mostrarDino(id) {
+  document.getElementById("nombre").innerText = dinos[id].nombre;
+  document.getElementById("imagen").src = dinos[id].img;
+  document.getElementById("info").innerHTML = dinos[id].info;
+}
+</script>
+
+</body>
+</html>

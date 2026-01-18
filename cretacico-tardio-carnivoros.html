@@ -177,7 +177,22 @@ carnotaurus: {
 <b>Velocidad estimada:</b> Muy alta<br>
 <b>Significado del nombre:</b> "Toro carnívoro"<br><br>
 <b>Contexto:</b><br>
-Especialista en embestidas rápidas.
+Especialista en ataques rápidos y violentos.
+`
+},
+
+abelisaurus: {
+  nombre: "Abelisaurus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Abelisaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 7–9 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Lagarto de Abel"<br><br>
+<b>Contexto:</b><br>
+Terópodo sudamericano representativo de los abelisáuridos.
 `
 },
 
@@ -192,7 +207,82 @@ majungasaurus: {
 <b>Velocidad estimada:</b> Media<br>
 <b>Significado del nombre:</b> "Lagarto de Majunga"<br><br>
 <b>Contexto:</b><br>
-Evidencia de canibalismo.
+Depredador dominante de Madagascar; evidencia de canibalismo.
+`
+},
+
+gorgosaurus: {
+  nombre: "Gorgosaurus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Gorgosaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 8–9 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Alta<br>
+<b>Significado del nombre:</b> "Lagarto feroz"<br><br>
+<b>Contexto:</b><br>
+Tiranoaurino ágil y veloz, cazador activo.
+`
+},
+
+albertosaurus: {
+  nombre: "Albertosaurus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Albertosaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 8–9 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Alta<br>
+<b>Significado del nombre:</b> "Lagarto de Alberta"<br><br>
+<b>Contexto:</b><br>
+Pariente cercano del T. rex, más ligero y rápido.
+`
+},
+
+tarbosaurus: {
+  nombre: "Tarbosaurus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/7/77/Tarbosaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 10–12 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Media–alta<br>
+<b>Significado del nombre:</b> "Lagarto aterrador"<br><br>
+<b>Contexto:</b><br>
+Depredador ápice asiático equivalente al T. rex.
+`
+},
+
+daspletosaurus: {
+  nombre: "Daspletosaurus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Daspletosaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 9–10 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Lagarto espantoso"<br><br>
+<b>Contexto:</b><br>
+Forma transicional entre tiranosaurios primitivos y avanzados.
+`
+},
+
+dromaeosaurus: {
+  nombre: "Dromaeosaurus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/3/32/Dromaeosaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> ~2 m<br>
+<b>Número de dientes:</b> ~30<br>
+<b>Velocidad estimada:</b> Muy alta<br>
+<b>Significado del nombre:</b> "Lagarto corredor"<br><br>
+<b>Contexto:</b><br>
+Pequeño depredador extremadamente agresivo.
 `
 },
 
@@ -207,7 +297,7 @@ velociraptor: {
 <b>Velocidad estimada:</b> Muy alta<br>
 <b>Significado del nombre:</b> "Ladrón veloz"<br><br>
 <b>Contexto:</b><br>
-Depredador ágil e inteligente.
+Depredador ágil, inteligente y cazador en grupo.
 `
 },
 
@@ -222,7 +312,7 @@ utahraptor: {
 <b>Velocidad estimada:</b> Media<br>
 <b>Significado del nombre:</b> "Ladrón de Utah"<br><br>
 <b>Contexto:</b><br>
-El mayor de los dromeosáuridos.
+El mayor de los dromeosáuridos conocidos.
 `
 },
 
@@ -242,7 +332,6 @@ Incluye restos fragmentarios aún no asignados a géneros definidos.
 }
 
 };
-
 function mostrarDino(id) {
   const dino = dinos[id];
   if (!dino) return;

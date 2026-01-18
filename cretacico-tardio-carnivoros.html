@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carnívoros del Cretácico Tardío</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", serif;
+  background: radial-gradient(circle at top, #120505, #020000);
+  color: #e5e5e5;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* MENU */
+.menu {
+  width: 300px;
+  background: linear-gradient(#1a0b0b, #050000);
+  padding: 20px;
+  border-right: 3px solid #7a2e2e;
+  box-shadow: inset -5px 0 15px rgba(0,0,0,0.9);
+  overflow-y: auto;
+}
+
+.menu h2 {
+  text-align: center;
+  color: #ff8a8a;
+  letter-spacing: 2px;
+}
+
+.menu button {
+  width: 100%;
+  background: none;
+  border: 1px solid transparent;
+  color: #ddd;
+  padding: 12px;
+  margin-bottom: 6px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.menu button:hover {
+  background: rgba(255,120,120,0.18);
+  border-color: #9a3a3a;
+}
+
+/* PANEL */
+.panel {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.panel h1 {
+  color: #ff8a8a;
+  text-shadow: 0 0 10px #000;
+}
+
+.panel img {
+  width: 520px;
+  max-width: 100%;
+  border-radius: 14px;
+  border: 4px solid #7a2e2e;
+  background: #111;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.9);
+  margin-bottom: 25px;
+}
+
+.stats {
+  background: rgba(15,5,5,0.9);
+  padding: 25px;
+  border-radius: 14px;
+  border: 2px solid #6a2626;
+  line-height: 1.7;
+}
+
+.note {
+  margin-top: 35px;
+  font-size: 14px;
+  opacity: 0.8;
+  border-top: 1px solid #6a2626;
+  padding-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- MENU -->
+<div class="menu">
+  <h2>CRETÁCICO TARDÍO</h2>
+
+  <button onclick="mostrarDino('tyrannosaurus')">Tyrannosaurus rex</button>
+  <button onclick="mostrarDino('spinosaurus')">Spinosaurus</button>
+  <button onclick="mostrarDino('carnotaurus')">Carnotaurus</button>
+  <button onclick="mostrarDino('abelisaurus')">Abelisaurus</button>
+  <button onclick="mostrarDino('majungasaurus')">Majungasaurus</button>
+  <button onclick="mostrarDino('gorgosaurus')">Gorgosaurus</button>
+  <button onclick="mostrarDino('albertosaurus')">Albertosaurus</button>
+  <button onclick="mostrarDino('tarbosaurus')">Tarbosaurus</button>
+  <button onclick="mostrarDino('daspletosaurus')">Daspletosaurus</button>
+  <button onclick="mostrarDino('dromaeosaurus')">Dromaeosaurus</button>
+  <button onclick="mostrarDino('velociraptor')">Velociraptor</button>
+  <button onclick="mostrarDino('utahraptor')">Utahraptor</button>
+  <button onclick="mostrarDino('basal_neotheropod')">Neoterópodo basal</button>
+</div>
+
+<!-- PANEL -->
+<div class="panel">
+  <h1 id="nombre">Carnívoros del Cretácico Tardío</h1>
+
+  <img id="imagen"
+       src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png"
+       alt="Dinosaurio">
+
+  <div class="stats" id="info">
+    Selecciona un dinosaurio para ver su información.
+  </div>
+
+  <div class="note">
+    ☄️ <b>Nota histórica:</b><br>
+    El Cretácico tardío culmina con la extinción masiva K–Pg, eliminando a todos los dinosaurios no avianos.
+  </div>
+</div>
+
+</div>
+
+<script>
+const dinos = {
+
+tyrannosaurus: {
+  nombre: "Tyrannosaurus rex",
+  img: "https://upload.wikimedia.org/wikipedia/commons/3/34/Tyrannosaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío (68–66 Ma)<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 12–13 m<br>
+<b>Número de dientes:</b> ~60 (hasta 30 cm)<br>
+<b>Velocidad estimada:</b> 27–32 km/h<br>
+<b>Significado del nombre:</b> "Rey de los lagartos tiranos"<br><br>
+<b>Contexto:</b><br>
+El depredador terrestre más poderoso que haya existido.
+`
+},
+
+spinosaurus: {
+  nombre: "Spinosaurus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/4/44/Spinosaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro (piscívoro)<br>
+<b>Tamaño:</b> 14–16 m<br>
+<b>Número de dientes:</b> >100 cónicos<br>
+<b>Velocidad estimada:</b> Baja en tierra<br>
+<b>Significado del nombre:</b> "Lagarto espinoso"<br><br>
+<b>Contexto:</b><br>
+El mayor terópodo conocido, adaptado a la vida acuática.
+`
+},
+
+carnotaurus: {
+  nombre: "Carnotaurus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/3/32/Carnotaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 7.5–8 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Muy alta<br>
+<b>Significado del nombre:</b> "Toro carnívoro"<br><br>
+<b>Contexto:</b><br>
+Especialista en embestidas rápidas.
+`
+},
+
+majungasaurus: {
+  nombre: "Majungasaurus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Majungasaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> ~7 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Lagarto de Majunga"<br><br>
+<b>Contexto:</b><br>
+Evidencia de canibalismo.
+`
+},
+
+velociraptor: {
+  nombre: "Velociraptor",
+  img: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Velociraptor.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> ~2 m<br>
+<b>Número de dientes:</b> ~30<br>
+<b>Velocidad estimada:</b> Muy alta<br>
+<b>Significado del nombre:</b> "Ladrón veloz"<br><br>
+<b>Contexto:</b><br>
+Depredador ágil e inteligente.
+`
+},
+
+utahraptor: {
+  nombre: "Utahraptor",
+  img: "https://upload.wikimedia.org/wikipedia/commons/4/49/Utahraptor.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano–tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 5–6 m<br>
+<b>Número de dientes:</b> ~40<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Ladrón de Utah"<br><br>
+<b>Contexto:</b><br>
+El mayor de los dromeosáuridos.
+`
+},
+
+basal_neotheropod: {
+  nombre: "Neoterópodo basal indeterminado",
+  img: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png",
+  info: `
+<b>Periodo:</b> Cretácico tardío<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 2–4 m<br>
+<b>Número de dientes:</b> Variable (30–50)<br>
+<b>Velocidad estimada:</b> Media–alta<br>
+<b>Significado del nombre:</b> Clasificación general<br><br>
+<b>Contexto:</b><br>
+Incluye restos fragmentarios aún no asignados a géneros definidos.
+`
+}
+
+};
+
+function mostrarDino(id) {
+  const dino = dinos[id];
+  if (!dino) return;
+
+  document.getElementById("nombre").innerText = dino.nombre;
+  document.getElementById("info").innerHTML = dino.info;
+
+  const img = document.getElementById("imagen");
+  img.src = dino.img;
+  img.onerror = () => img.src =
+    "https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png";
+}
+</script>
+
+</body>
+</html>

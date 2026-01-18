@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carnívoros del Cretácico Temprano</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", serif;
+  background: radial-gradient(circle at top, #14261c, #050805);
+  color: #e5e5e5;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* MENU */
+.menu {
+  width: 320px;
+  background: linear-gradient(#1f3a2a, #0b160f);
+  padding: 20px;
+  border-right: 3px solid #5a8a6a;
+  box-shadow: inset -5px 0 15px rgba(0,0,0,0.8);
+  overflow-y: auto;
+}
+
+.menu h2 {
+  text-align: center;
+  color: #9fe0b6;
+  letter-spacing: 2px;
+}
+
+.menu button {
+  width: 100%;
+  background: none;
+  border: 1px solid transparent;
+  color: #eafff1;
+  padding: 12px;
+  margin-bottom: 6px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.menu button:hover {
+  background: rgba(159,224,182,0.15);
+  border-color: #6aa584;
+}
+
+/* PANEL */
+.panel {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.panel h1 {
+  color: #9fe0b6;
+  text-shadow: 0 0 8px #000;
+}
+
+.panel img {
+  width: 520px;
+  max-width: 100%;
+  border-radius: 14px;
+  border: 4px solid #5a8a6a;
+  background: #111;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.85);
+  margin-bottom: 25px;
+}
+
+.stats {
+  background: rgba(15,25,20,0.9);
+  padding: 25px;
+  border-radius: 14px;
+  border: 2px solid #4e7a5a;
+  line-height: 1.7;
+}
+
+.note {
+  margin-top: 35px;
+  font-size: 14px;
+  opacity: 0.8;
+  border-top: 1px solid #4e7a5a;
+  padding-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- MENU -->
+<div class="menu">
+  <h2>CRETÁCICO TEMPRANO</h2>
+
+  <button onclick="mostrarDino('acrocanthosaurus')">Acrocanthosaurus</button>
+  <button onclick="mostrarDino('baryonyx')">Baryonyx</button>
+  <button onclick="mostrarDino('suchomimus')">Suchomimus</button>
+  <button onclick="mostrarDino('spinosaurus_early')">Spinosaurus (temprano)</button>
+  <button onclick="mostrarDino('concavenator')">Concavenator</button>
+  <button onclick="mostrarDino('neovenator')">Neovenator</button>
+  <button onclick="mostrarDino('utahraptor')">Utahraptor</button>
+  <button onclick="mostrarDino('deinonychus')">Deinonychus</button>
+  <button onclick="mostrarDino('eotyrannus')">Eotyrannus</button>
+  <button onclick="mostrarDino('guanlong_early')">Guanlong (persistente)</button>
+  <button onclick="mostrarDino('aerosteon_early')">Aerosteon (temprano)</button>
+  <button onclick="mostrarDino('basal_neotheropod')">Neoterópodo basal</button>
+</div>
+
+<!-- PANEL -->
+<div class="panel">
+  <h1 id="nombre">Carnívoros del Cretácico Temprano</h1>
+
+  <img id="imagen"
+       src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png"
+       alt="Dinosaurio">
+
+  <div class="stats" id="info">
+    Selecciona un dinosaurio para ver su información.
+  </div>
+
+  <div class="note">
+    ⚠️ <b>Nota científica:</b><br>
+    El Cretácico temprano marca el surgimiento de linajes altamente especializados,
+    incluyendo espinosáuridos, dromeosáuridos gigantes y los primeros tiranosauroideos avanzados.
+  </div>
+</div>
+
+</div>
+
+<script>
+const dinos = {
+
+acrocanthosaurus: {
+  nombre: "Acrocanthosaurus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Acrocanthosaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano (≈ 125–100 Ma)<br>
+<b>Dieta:</b> Carnívoro (grandes saurópodos)<br>
+<b>Tamaño:</b> 11–12 m (1100–1200 cm / 36–39 ft)<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> 25–30 km/h<br>
+<b>Significado del nombre:</b> "Lagarto de espinas altas"<br><br>
+<b>Contexto:</b><br>
+Uno de los mayores depredadores terrestres del Cretácico temprano.
+Dominó Norteamérica antes de la llegada de Tyrannosaurus.
+`
+},
+
+baryonyx: {
+  nombre: "Baryonyx",
+  img: "https://upload.wikimedia.org/wikipedia/commons/4/43/Baryonyx.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano<br>
+<b>Dieta:</b> Carnívoro (principalmente peces)<br>
+<b>Tamaño:</b> 9–10 m<br>
+<b>Número de dientes:</b> ~96<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Garra pesada"<br><br>
+<b>Contexto:</b><br>
+Primer espinosáurido descubierto, especializado en ambientes fluviales.
+`
+},
+
+suchomimus: {
+  nombre: "Suchomimus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/3/38/Suchomimus.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano<br>
+<b>Dieta:</b> Carnívoro (piscívoro)<br>
+<b>Tamaño:</b> 11 m<br>
+<b>Número de dientes:</b> >100<br>
+<b>Velocidad estimada:</b> Media<br>
+<b>Significado del nombre:</b> "Imitador de cocodrilo"<br><br>
+<b>Contexto:</b><br>
+Espinosáurido africano altamente especializado.
+`
+},
+
+spinosaurus_early: {
+  nombre: "Spinosaurus (formas tempranas)",
+  img: "https://upload.wikimedia.org/wikipedia/commons/1/18/Spinosaurus.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano–medio<br>
+<b>Dieta:</b> Carnívoro (semiacuático)<br>
+<b>Tamaño:</b> 14–15 m<br>
+<b>Número de dientes:</b> >120<br>
+<b>Velocidad estimada:</b> Baja en tierra, alta en agua<br>
+<b>Significado del nombre:</b> "Lagarto espina"<br><br>
+<b>Contexto:</b><br>
+El mayor terópodo conocido. Revolucionó la visión de los dinosaurios carnívoros.
+`
+},
+
+concavenator: {
+  nombre: "Concavenator",
+  img: "https://upload.wikimedia.org/wikipedia/commons/4/49/Concavenator.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 6 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Alta<br>
+<b>Significado del nombre:</b> "Cazador jorobado"<br><br>
+<b>Contexto:</b><br>
+Terópodo europeo con posible estructura de exhibición dorsal.
+`
+},
+
+neovenator: {
+  nombre: "Neovenator",
+  img: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Neovenator.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 7.5 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Alta<br>
+<b>Significado del nombre:</b> "Nuevo cazador"<br><br>
+<b>Contexto:</b><br>
+Depredador ápice europeo, muy avanzado para su época.
+`
+},
+
+utahraptor: {
+  nombre: "Utahraptor",
+  img: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Utahraptor.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 6–7 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Alta<br>
+<b>Significado del nombre:</b> "Ladrón de Utah"<br><br>
+<b>Contexto:</b><br>
+El dromeosáurido más grande conocido.
+`
+},
+
+deinonychus: {
+  nombre: "Deinonychus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/5/52/Deinonychus.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 3.5 m<br>
+<b>Número de dientes:</b> ~50<br>
+<b>Velocidad estimada:</b> Muy alta<br>
+<b>Significado del nombre:</b> "Garra terrible"<br><br>
+<b>Contexto:</b><br>
+Cambió para siempre la visión moderna de los dinosaurios.
+`
+},
+
+eotyrannus: {
+  nombre: "Eotyrannus",
+  img: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Eotyrannus.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 4.5 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Alta<br>
+<b>Significado del nombre:</b> "Tirano del amanecer"<br><br>
+<b>Contexto:</b><br>
+Uno de los primeros tiranosauroideos avanzados.
+`
+},
+
+guanlong_early: {
+  nombre: "Guanlong (persistente)",
+  img: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Guanlong.png",
+  info: `
+<b>Periodo:</b> Jurásico tardío–Cretácico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 3 m<br>
+<b>Número de dientes:</b> ~50<br>
+<b>Velocidad estimada:</b> Alta<br>
+<b>Significado del nombre:</b> "Dragón coronado"<br><br>
+<b>Contexto:</b><br>
+Antecesor directo de los grandes tiranosaurios.
+`
+},
+
+aerosteon_early: {
+  nombre: "Aerosteon (formas tempranas)",
+  img: "https://upload.wikimedia.org/wikipedia/commons/3/34/Aerosteon.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 9 m<br>
+<b>Número de dientes:</b> ~60<br>
+<b>Velocidad estimada:</b> Media–alta<br>
+<b>Significado del nombre:</b> "Huesos con aire"<br><br>
+<b>Contexto:</b><br>
+Importante para entender la respiración avanzada de los terópodos.
+`
+},
+
+basal_neotheropod: {
+  nombre: "Neoterópodo basal indeterminado",
+  img: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png",
+  info: `
+<b>Periodo:</b> Cretácico temprano<br>
+<b>Dieta:</b> Carnívoro<br>
+<b>Tamaño:</b> 2–4 m<br>
+<b>Número de dientes:</b> Variable (30–50)<br>
+<b>Velocidad estimada:</b> Media–alta<br>
+<b>Significado del nombre:</b> Clasificación general<br><br>
+<b>Contexto:</b><br>
+Incluye restos fragmentarios aún no asignados a géneros definidos.
+`
+}
+
+};
+
+function mostrarDino(id) {
+  const d = dinos[id];
+  if (!d) return;
+
+  document.getElementById("nombre").innerText = d.nombre;
+  document.getElementById("info").innerHTML = d.info;
+
+  const img = document.getElementById("imagen");
+  img.src = d.img;
+  img.onerror = () => img.src = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Theropod.png";
+}
+</script>
+
+</body>
+</html>
